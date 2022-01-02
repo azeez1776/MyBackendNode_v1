@@ -1,0 +1,11 @@
+{
+  "name": "mynodebackend_v1",
+  "version": "1.0.0",
+  "description": "A node backend with an industrial folder structure",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "azeez1776 (Samatar Abdi)",
+  "license": "ISC"
+}
