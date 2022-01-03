@@ -1,12 +1,9 @@
 import mongoose from 'mongoose';
-import options from '../config';
+import {config} from '../config/dev.js';
 
-export const connect = (url=options.dbURL, opts={}) => {
+export const connect = (url=config.dbURL, opts={}) => {
    return mongoose.connect(
        url,
-       {...opts, useNewUrlParser:true},
-       (error) => {
-           console.log(`The following error on establishing connection with MongoDB Atlas ${error}`)
-       }
+       {...opts, useNewUrlParser:true}
    )
 }

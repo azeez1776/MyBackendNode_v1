@@ -1,5 +1,5 @@
 import express from 'express';
-import {connect} from "mongoose";
+import {connect} from './utils/db.js';
 
 const app = express();
 
