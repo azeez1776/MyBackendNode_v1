@@ -45,5 +45,6 @@ export const remove = model => async (req, res) => {
 export const crudController = model => ({
     getOne:getOne(model),
     getAll:getAll(model),
-    create:create(model)
+    create:create(model),
+    remove:remove(model)
 })

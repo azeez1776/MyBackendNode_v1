@@ -7,6 +7,7 @@ router
 .route('/')
     .get(controller.getAll)
     .post(controller.create)
+    .delete(controller.remove)
 
 router
 .route('/:id')
