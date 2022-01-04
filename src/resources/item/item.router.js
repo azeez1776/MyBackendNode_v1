@@ -7,10 +7,11 @@ router
 .route('/')
     .get(controller.getAll)
     .post(controller.create)
-    .delete(controller.remove)
+
 
 router
 .route('/:id')
 .get(controller.getOne)
+    .delete(controller.remove)
 
 export default router;
