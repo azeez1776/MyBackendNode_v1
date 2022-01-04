@@ -21,3 +21,8 @@ export const getAll = model => async (req, res) => {
         res.status(401).end();
     }
 }
+
+export const crudController = model => ({
+    getOne:getOne(model),
+    getAll:getAll(model)
+})
