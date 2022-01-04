@@ -1,14 +1,19 @@
 import express from 'express';
 import {connect} from './utils/db.js';
-import
+import itemRouter from './resources/item/item.router.js';
 
 const app = express();
+
+app.use(express.json())
+app.use(express.urlencoded({extended:true}))
 
 const PORT = 4000;
 
 app.get('/', (req, res) => {
     res.send("Hello World")
 })
+
+app.use('/api/items', itemRouter);
 
 export const start =  async () => {
     try{
