@@ -3,15 +3,15 @@ import {connect} from './utils/db.js';
 
 const app = express();
 
-const PORT = 3000;
+const PORT = 4000;
 
 app.get('/', (req, res) => {
     res.send("Hello World")
 })
 
-export const start = async () => {
+export const start =  async () => {
     try{
-        await connect();
+      await connect();
         app.listen(PORT, () =>{
             console.log(`Listening to port ${PORT}`)
         })
