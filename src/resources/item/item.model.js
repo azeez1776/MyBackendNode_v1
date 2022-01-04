@@ -1,7 +1,7 @@
 import mongoose from 'mongoose';
 
 
-const item = new mongoose.Schema({
+const itemSchema = new mongoose.Schema({
     name:{
         type:String,
         required:true,
@@ -13,3 +13,5 @@ const item = new mongoose.Schema({
 },
     {timestamps: true}
 )
+
+export const Item = mongoose.model('item', itemSchema);
