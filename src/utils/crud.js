@@ -28,11 +28,12 @@ export const create = model => async (req, res) => {
         res.status(200).json(doc).end()
     }catch (e) {
         console.log(e);
-        res.status(400).json({message:'Failed to create, something wrong with the Database'})
+        res.status(400).json({message:'Failed to create, something wrong with the Database'}).end()
     }
 }
 
 export const crudController = model => ({
     getOne:getOne(model),
-    getAll:getAll(model)
+    getAll:getAll(model),
+    create:create(model)
 })
