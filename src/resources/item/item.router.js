@@ -11,7 +11,8 @@ router
 
 router
 .route('/:id')
-.get(controller.getOne)
+    .get(controller.getOne)
     .delete(controller.remove)
+    .put(controller.update)
 
 export default router;
