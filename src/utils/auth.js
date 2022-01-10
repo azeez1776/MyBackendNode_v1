@@ -37,11 +37,26 @@ export const signin = async (req, res) => {
             res.status(400).send('Include both email and password');
         }
 
-        const user = User.findOne({ email: req.body.email })
+        const user = await User.findOne({ email: req.body.email })
             .select('email password')
-            .lean()
             .exec()
 
+        if (!user) {
+            res.status(400).send({ message: 'Invalid email and password' })
+        }
 
+        const match = await user.checkPassword(req.body.password)
+
+        if (!match) {
+            res.status(400).send({ message: 'Invalid email and password' })
+        }
+
+        const token = newToken(user);
+
+        res.status(200).send({ token })
+
+    } catch (err) {
+        res.status(500).send({ message: "Server Error" })
     }
 }
+
