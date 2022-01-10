@@ -85,6 +85,8 @@ export const protect = async (req, res, next) => {
 
     req.user = user;
 
+    next();
+
 
 }
 
