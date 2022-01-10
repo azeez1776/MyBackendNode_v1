@@ -60,3 +60,31 @@ export const signin = async (req, res) => {
     }
 }
 
+export const protect = async (req, res, next) => {
+    const bearer = req.header.authorization;
+    if (!bearer || !bearer.startsWith('Bearer ')) {
+        res.status(401).end()
+    }
+
+    const token = bearer.split(' ')[1].trim();
+
+    let payload;
+    try {
+        payload = await verifyToken(token);
+    } catch (err) {
+        res.status(401).end();
+    }
+
+    const user = await User.findById(payload.id)
+        .select('-password')
+        .exec()
+
+    if (!user) {
+        return res.status(401).end()
+    }
+
+    req.user = user;
+
+
+}
+
