@@ -14,6 +14,9 @@ app.get('/', (req, res) => {
     res.send("Hello World")
 })
 
+app.use('/sigin', signin);
+app.use('/signup', signup);
+app.use('/api', protect);
 app.use('/api/items', itemRouter);
 
 export const start = async () => {
