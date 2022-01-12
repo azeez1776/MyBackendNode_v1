@@ -15,7 +15,7 @@ app.get('/', (req, res) => {
     res.send("Hello World")
 })
 
-app.post('/sigin', signin);
+app.post('/signin', signin);
 app.post('/signup', signup);
 
 app.use('/api', protect);
