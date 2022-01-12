@@ -9,9 +9,10 @@ export const newToken = (user) => {
 }
 
 export const verifyToken = token => {
-    new Promise((resolve, reject) => {
+    return new Promise((resolve, reject) => {
         jwt.verify(token, config.secrets.jwt, (err, payload) => {
-            if (err) reject(err);
+            if (err) reject(err)
+
             resolve(payload)
         })
     })
@@ -45,7 +46,7 @@ export const signin = async (req, res) => {
             res.status(400).send({ message: 'Invalid email and password' })
         }
 
-        console.log(user)
+
         const match = await user.checkPassword(req.body.password)
 
         if (!match) {
@@ -64,12 +65,13 @@ export const signin = async (req, res) => {
 
 export const protect = async (req, res, next) => {
     const bearer = req.headers.authorization;
-    console.log(bearer)
+
     if (!bearer || !bearer.startsWith('Bearer ')) {
         res.status(401).json({ message: "Not authorised" }).end()
     }
 
-    const token = bearer.split(' ')[1].trim();
+    const token = bearer.split('Bearer ')[1].trim();
+
 
     let payload;
     try {
@@ -77,6 +79,7 @@ export const protect = async (req, res, next) => {
     } catch (err) {
         res.status(401).json({ message: "Not authorised" }).end();
     }
+
 
     const user = await User.findById(payload.id)
         .select('-password')
