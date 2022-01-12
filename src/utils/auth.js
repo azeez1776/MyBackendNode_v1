@@ -56,6 +56,7 @@ export const signin = async (req, res) => {
         res.status(200).send({ token })
 
     } catch (err) {
+        console.log(err)
         res.status(500).send({ message: "Server Error" })
     }
 }
