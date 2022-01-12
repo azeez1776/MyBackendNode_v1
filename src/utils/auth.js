@@ -45,6 +45,7 @@ export const signin = async (req, res) => {
             res.status(400).send({ message: 'Invalid email and password' })
         }
 
+        console.log(user)
         const match = await user.checkPassword(req.body.password)
 
         if (!match) {
