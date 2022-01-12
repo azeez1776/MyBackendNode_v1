@@ -63,7 +63,7 @@ export const signin = async (req, res) => {
 export const protect = async (req, res, next) => {
     const bearer = req.header.authorization;
     if (!bearer || !bearer.startsWith('Bearer ')) {
-        res.status(401).end()
+        res.status(401).json({ message: "Not authorised" }).end()
     }
 
     const token = bearer.split(' ')[1].trim();
@@ -72,7 +72,7 @@ export const protect = async (req, res, next) => {
     try {
         payload = await verifyToken(token);
     } catch (err) {
-        res.status(401).end();
+        res.status(401).json({ message: "Not authorised" }).end();
     }
 
     const user = await User.findById(payload.id)
