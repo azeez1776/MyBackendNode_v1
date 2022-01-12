@@ -1,5 +1,5 @@
-import { User } from '../resources/user/user.model';
-import config from '../config/dev';
+import { User } from '../resources/user/user.model.js';
+import { config } from '../config/dev.js';
 import jwt from 'jsonwebtoken';
 
 export const newToken = () => {
@@ -80,7 +80,7 @@ export const protect = async (req, res, next) => {
         .exec()
 
     if (!user) {
-        return res.status(401).end()
+        return res.status(401).json({ message: "Not authorised" }).end()
     }
 
     req.user = user;
