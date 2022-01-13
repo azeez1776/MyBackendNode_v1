@@ -12,7 +12,7 @@ export const getOne = model => async (req, res) => {
 
 export const getAll = model => async (req, res) => {
     try {
-        let doc = await model.find()
+        let doc = await model.find({ createdBy: req.user.id })
             .lean()
             .exec()
         res.status(200).json(doc).end()
@@ -22,7 +22,7 @@ export const getAll = model => async (req, res) => {
     }
 }
 
-export const create = (model, user = null) => async (req, res) => {
+export const create = model => async (req, res) => {
 
     const { name, notes, due } = req.body;
     try {
