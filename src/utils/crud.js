@@ -23,8 +23,10 @@ export const getAll = model => async (req, res) => {
 }
 
 export const create = (model, user = null) => async (req, res) => {
+
+    const { name, notes, due } = req.body;
     try {
-        let doc = await model.create({ ...req.body })
+        let doc = await model.create({})
         res.status(200).json(doc).end()
     } catch (e) {
         console.log(e);
