@@ -25,10 +25,13 @@ export const signup = async (req, res) => {
         }
 
         const user = await User.create(req.body);
+        console.log(user)
         const token = newToken(user);
+        console.log(token)
         res.status(201).send({ token })
-    } catch {
+    } catch (err) {
         res.status(500).send('Server Error')
+        console.log(err)
     }
 }
 
