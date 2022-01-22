@@ -2,6 +2,7 @@ import express from 'express';
 import { connect } from './utils/db.js';
 import itemRouter from './resources/item/item.router.js';
 import { signin, signup, protect } from './utils/auth.js'
+import morgan from 'morgan';
 
 
 const app = express();
