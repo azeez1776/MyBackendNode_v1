@@ -1,4 +1,4 @@
-export const getOne = model => async (req, res) => {
+const getOne = model => async (req, res) => {
     try {
         let doc = await model.findOne({ _id: req.params.id })
             .lean()
@@ -10,7 +10,7 @@ export const getOne = model => async (req, res) => {
     }
 }
 
-export const getAll = model => async (req, res) => {
+const getAll = model => async (req, res) => {
     try {
         let doc = await model.find({ createdBy: req.user.id })
             .lean()
@@ -22,7 +22,7 @@ export const getAll = model => async (req, res) => {
     }
 }
 
-export const create = model => async (req, res) => {
+const create = model => async (req, res) => {
 
     const { name, notes, due } = req.body;
     try {
@@ -49,7 +49,7 @@ export const remove = model => async (req, res) => {
     }
 }
 
-export const update = model => async (req, res) => {
+const update = model => async (req, res) => {
     try {
         const doc = await model.findOneAndUpdate({ _id: req.params.id }, req.body, { new: true })
             .lean()
