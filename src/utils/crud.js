@@ -35,7 +35,7 @@ const create = model => async (req, res) => {
         res.status(200).json(doc).end()
     } catch (e) {
         console.log(e);
-        res.status(400).json({ message: 'Failed to create, something wrong with the Database' }).end()
+        res.status(500).json({ message: 'Failed to create, something wrong with the Database' }).end()
     }
 }
 
