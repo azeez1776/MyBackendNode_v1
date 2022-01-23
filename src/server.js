@@ -5,7 +5,7 @@ import { signin, signup, protect } from './utils/auth.js'
 import morgan from 'morgan';
 
 
-const app = express();
+export const app = express();
 
 app.use(morgan('dev'));
 
