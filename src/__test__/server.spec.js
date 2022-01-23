@@ -11,13 +11,3 @@ describe('Checking api auth', () => {
     })
 })
 
-const add = (a, b) => {
-    return a + b
-}
-
-describe('Adding', () => {
-    test('Expecting 3 with 1 and 2', () => {
-        let data = add(1, 2);
-        expect(data).toBe(3);
-    })
-})
