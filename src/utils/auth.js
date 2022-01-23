@@ -70,7 +70,8 @@ export const protect = async (req, res, next) => {
     const bearer = req.headers.authorization;
 
     if (!bearer || !bearer.startsWith('Bearer ')) {
-        res.status(401).json({ message: "Not authorised" }).end()
+        return res.status(401).json({ message: "Not authorised" }).end()
+
     }
 
     const token = bearer.split('Bearer ')[1].trim();
