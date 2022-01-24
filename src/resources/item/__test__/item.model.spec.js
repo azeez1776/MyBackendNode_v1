@@ -14,16 +14,12 @@ describe('Item Model', () => {
 
     test('Testing item notes', () => {
         const notes = Item.schema.obj.notes;
-        expect(notes).toEqual({
-            type: String,
-        })
+        expect(notes).toEqual(String)
     })
 
     test('Testing Date', () => {
         const due = Item.schema.obj.due;
-        expect(due).toEqual({
-            type: Date,
-        })
+        expect(due).toEqual(Date)
     })
 
     test('Testing Created by', () => {
