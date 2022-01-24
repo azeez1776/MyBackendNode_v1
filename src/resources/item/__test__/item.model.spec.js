@@ -25,4 +25,13 @@ describe('Item Model', () => {
             type: Date,
         })
     })
+
+    test('Testing Created by', () => {
+        const createdBy = Item.schema.obj.createdBy;
+        expect(createdBy).toEqual({
+            type: mongoose.SchemaTypes.ObjectId,
+            ref: 'user',
+            required: true
+        })
+    })
 })
