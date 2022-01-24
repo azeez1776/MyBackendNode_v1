@@ -25,6 +25,7 @@
     "@babel/preset-env": "^7.16.8",
     "eslint": "^8.7.0",
     "jest": "^27.4.7",
+    "lodash": "^4.17.21",
     "morgan": "^1.10.0",
     "prettier": "2.5.1",
     "supertest": "^6.2.2"
@@ -33,7 +34,9 @@
     "verbose": true,
     "testURL": "http://localhost/",
     "testEnvironment": "node",
-    "setupFilesAfterEnv": ["./setupTests.js"],
+    "setupFilesAfterEnv": [
+      "./setupTests.js"
+    ],
     "testPathIgnorePatterns": [
       "dist/"
     ],
