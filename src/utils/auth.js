@@ -21,24 +21,24 @@ export const verifyToken = token => {
 export const signup = async (req, res) => {
     try {
         if (!req.body.email || !req.body.password) {
-            res.status(400).send('Include both email and password')
+            return res.status(400).send('Include both email and password')
         }
 
         const user = await User.create(req.body);
         console.log(user)
         const token = newToken(user);
         console.log(token)
-        res.status(201).send({ token })
+        return res.status(201).send({ token })
     } catch (err) {
-        res.status(500).send('Server Error')
         console.log(err)
+        return res.status(500).send('Server Error')
     }
 }
 
 export const signin = async (req, res) => {
     try {
         if (!req.body.email || !req.body.password) {
-            res.status(400).send('Include both email and password');
+            return res.status(400).send('Include both email and password');
         }
 
         const user = await User.findOne({ email: req.body.email })
@@ -46,23 +46,23 @@ export const signin = async (req, res) => {
             .exec()
 
         if (!user) {
-            res.status(400).send({ message: 'Invalid email and password' })
+            return res.status(400).send({ message: 'Invalid email and password' })
         }
 
 
         const match = await user.checkPassword(req.body.password)
 
         if (!match) {
-            res.status(400).send({ message: 'Invalid email and password' })
+            return res.status(400).send({ message: 'Invalid email and password' })
         }
 
         const token = newToken(user);
 
-        res.status(200).send({ token })
+        return res.status(200).send({ token })
 
     } catch (err) {
         console.log(err)
-        res.status(500).send({ message: "Server Error" })
+        return res.status(500).send({ message: "Server Error" })
     }
 }
 
