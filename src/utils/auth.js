@@ -2,6 +2,7 @@ import { User } from '../resources/user/user.model.js';
 import { config } from '../config/dev.js';
 import jwt from 'jsonwebtoken';
 
+//Create new token
 export const newToken = (user) => {
     return jwt.sign({ id: user.id }, config.secrets.jwt, {
         expiresIn: 10000
