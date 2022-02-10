@@ -12,4 +12,13 @@ describe("Testing the user model", () => {
         })
     });
 
+    test("Testing for user password", () => {
+        const password = User.schema.obj.password;
+        expect(password).toEqual({
+            type: String,
+            required: true,
+            minLength: 8
+        })
+    })
+
 })
