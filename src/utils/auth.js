@@ -9,6 +9,7 @@ export const newToken = (user) => {
     })
 }
 
+//Verify Token
 export const verifyToken = token => {
     return new Promise((resolve, reject) => {
         jwt.verify(token, config.secrets.jwt, (err, payload) => {
@@ -19,6 +20,7 @@ export const verifyToken = token => {
     })
 }
 
+// Sign up
 export const signup = async (req, res) => {
     try {
         if (!req.body.email || !req.body.password) {
@@ -36,6 +38,7 @@ export const signup = async (req, res) => {
     }
 }
 
+//Sign in
 export const signin = async (req, res) => {
     try {
         if (!req.body.email || !req.body.password) {
@@ -67,6 +70,7 @@ export const signin = async (req, res) => {
     }
 }
 
+//protect
 export const protect = async (req, res, next) => {
     const bearer = req.headers.authorization;
 
