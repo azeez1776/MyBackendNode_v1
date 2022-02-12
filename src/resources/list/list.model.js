@@ -16,4 +16,5 @@ const ListSchema = new mongoose.Schema({
 },
     {timestamps:true}
 
-    )
+    );
+ListSchema.index({user:1, name:1}, {unique:true});
