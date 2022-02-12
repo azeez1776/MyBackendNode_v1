@@ -14,6 +14,12 @@ const itemSchema = new mongoose.Schema({
         type: mongoose.SchemaTypes.ObjectId,
         ref: 'user',
         required: true
+    ,
+        list:{
+            type:mongoose.SchemaTypes.ObjectId,
+            ref:'list',
+            required:true
+        }
     }
 },
     { timestamps: true }
