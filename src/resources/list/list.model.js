@@ -13,4 +13,7 @@ const ListSchema = new mongoose.Schema({
         ref:'user',
         required:true
     }
-})
+},
+    {timestamps:true}
+
+    )
