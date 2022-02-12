@@ -18,3 +18,5 @@ const ListSchema = new mongoose.Schema({
 
     );
 ListSchema.index({user:1, name:1}, {unique:true});
+
+export const List = mongoose.model('list', ListSchema);
