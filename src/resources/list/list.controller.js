@@ -1,2 +1,2 @@
 import {crudController} from "../../utils/crud.js";
-import
+import {List} from "./list.model.js";
