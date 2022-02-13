@@ -5,12 +5,10 @@ describe("Testing List Schema", () => {
     test("testing list name", () => {
         const name = List.schema.obj.name;
         expect(name).toEqual({
-            name:{
                 type:String,
                 required:true,
                 maxLength:50,
                 trim:true
-            }
         })
     })
 
