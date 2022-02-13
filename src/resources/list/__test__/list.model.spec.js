@@ -15,8 +15,18 @@ describe("Testing List Schema", () => {
     })
 
     test("testing list description", () => {
-        const description = List.schema.obj.description;
-        expect(description).toEqual(String);
-    }
+            const description = List.schema.obj.description;
+            expect(description).toEqual(String)
+        }
+        )
+
+    test("Testing list createdBy part", () => {
+        const createdBy = List.schema.obj.createdBy;
+        expect(createdBy).toEqual({
+            type: mongoose.SchemaTypes.ObjectId,
+            ref: 'user',
+            required: true
+        })
+    })
 
 })
