@@ -2,5 +2,8 @@ import {List} from '../list.model.js';
 import mongoose from 'mongoose';
 
 describe("Testing List Schema", () => {
-    test()
+    test("testing list name", () => {
+        const name = mongoose.SchemaTypes.ObjectId;
+
+    })
 })
