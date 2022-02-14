@@ -26,7 +26,7 @@ describe('Item Model', () => {
         const createdBy = Item.schema.obj.createdBy;
         expect(createdBy).toEqual({
             type: mongoose.SchemaTypes.ObjectId,
-            ref: 'list',
+            ref: 'user',
             required: true
         })
     })
