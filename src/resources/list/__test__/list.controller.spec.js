@@ -1,5 +1,5 @@
 import {isFunction} from "lodash";
-import {crudController} from "../../../utils/crud.js";
+import crudController from '../list.controller.js';
 
 describe("Testing the list controller", ()=> {
     test("testing the crud functionality",()=>{
@@ -10,6 +10,9 @@ describe("Testing the list controller", ()=> {
             'remove',
             'create'
         ];
+        cruds.forEach(action => {
+            expect(isFunction(crudController[action])).toBe(true);
+        })
 
     })
 })
