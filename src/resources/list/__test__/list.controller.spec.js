@@ -1,0 +1,1 @@
+import {isFunction} from "lodash";
