@@ -30,4 +30,13 @@ describe('Item Model', () => {
             required: true
         })
     })
+
+    test('Testing of list', () => {
+        const list = Item.schema.obj.list;
+        expect(list).toEqual({
+            type:mongoose.SchemaTypes.ObjectId,
+            ref:'list',
+            required:true
+        })
+    })
 })
