@@ -9,6 +9,12 @@ describe("Testing the list router", () => {
         {path:'/:id', method:'put'},
         {path:'/:id', method:'delete'}
     ];
+    routes.forEach(route => {
+        const match = router.stack.find(
+            s => s.route.path === route.path && s.route.methods[route.method]
+        );
+
+    })
 
     })
 })
