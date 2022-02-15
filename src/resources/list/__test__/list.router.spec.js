@@ -1,0 +1,1 @@
+import router from '../list.router.js';
